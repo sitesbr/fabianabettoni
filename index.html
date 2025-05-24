@@ -4,18 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fabiana Bettoni Imóveis | Imóveis Exclusivos no Tatuapé</title>
+    <meta name="description" content="Imóveis de alto padrão no Tatuapé, exclusivos e fora dos portais convencionais. Consultoria imobiliária especializada para famílias exigentes.">
+    <meta property="og:title" content="Fabiana Bettoni Imóveis | Imóveis Exclusivos no Tatuapé">
+    <meta property="og:description" content="Acesso a imóveis premium que não estão anunciados nos portais. Consultoria personalizada para famílias no Tatuapé.">
+    <meta property="og:image" content="https://i.imgur.com/HZRzfjY.png">
+    <meta property="og:url" content="https://www.fabianabettoni.com.br">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+    
+    <link rel="icon" href="https://i.imgur.com/fy6aRA9.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://i.imgur.com/fy6aRA9.png">
+    
     <script>
         tailwind.config = {
             theme: {
+                fontFamily: {
+                    sans: ['Poppins', 'sans-serif'],
+                    display: ['Montserrat', 'sans-serif'],
+                },
                 extend: {
                     colors: {
                         primary: '#43b7ce',
                         secondary: '#007587',
                         accent: '#007587',
-                    }
+                    },
+                    spacing: {
+                        '128': '32rem',
+                        '144': '36rem',
+                    },
                 }
             }
         }
@@ -25,30 +48,33 @@
             background: linear-gradient(135deg, rgba(67,183,206,0.9) 0%, rgba(0,117,135,0.9) 100%);
         }
         .testimonial-card {
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px -5px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
         }
         .testimonial-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px -10px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 25px -5px rgba(0,0,0,0.12);
         }
         .feature-icon {
-            width: 60px;
-            height: 60px;
+            width: 72px;
+            height: 72px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
             background-color: #007587;
             color: white;
-            font-size: 24px;
+            font-size: 28px;
             margin: 0 auto 20px;
+            border: 1px solid rgba(255,255,255,0.2);
         }
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
         }
         .video-container iframe {
             position: absolute;
@@ -56,13 +82,17 @@
             left: 0;
             width: 100%;
             height: 100%;
+            border: none;
         }
         .property-card {
             transition: all 0.3s ease;
+            box-shadow: 0 4px 20px -5px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            overflow: hidden;
         }
         .property-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px -10px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px -5px rgba(0,0,0,0.15);
         }
         .floating-btn {
             position: fixed;
@@ -72,7 +102,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
             transition: all 0.3s ease;
             z-index: 999;
         }
@@ -92,34 +122,85 @@
             right: 30px;
         }
         .logo-img {
-            height: 50px;
+            height: 48px;
             width: auto;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #43b7ce;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        .btn-primary {
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+        .faq-item {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .faq-question {
+            transition: all 0.3s ease;
+        }
+        .faq-question:hover {
+            background-color: rgba(0,0,0,0.03);
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .section {
+            padding: 6rem 0;
+        }
+        .footer-link {
+            transition: all 0.2s ease;
+        }
+        .footer-link:hover {
+            color: #43b7ce;
+            transform: translateX(3px);
         }
     </style>
 </head>
-<body class="font-sans text-gray-800">
+<body class="font-sans text-gray-700 antialiased">
     <!-- Floating Buttons -->
-    <a href="https://wa.me/5511947987584" class="floating-btn whatsapp-btn">
+    <a href="https://wa.me/5511947987584" class="floating-btn whatsapp-btn" aria-label="WhatsApp">
         <i class="fab fa-whatsapp text-2xl"></i>
     </a>
-    <a href="#chat-modal" class="floating-btn chat-btn" onclick="openChatModal()">
-        <i class="fas fa-comments text-2xl"></i>
+    <a href="#chat-modal" class="floating-btn chat-btn" onclick="openChatModal()" aria-label="Chat">
+        <i class="fas fa-comment text-2xl"></i>
     </a>
 
     <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="https://cdn2.uso.com.br/sites/logos/28476.png" alt="Fabiana Bettoni Imóveis" class="logo-img mr-3">
+                <img src="https://i.imgur.com/HZRzfjY.png" alt="Fabiana Bettoni Imóveis" class="logo-img mr-3">
             </div>
-            <div class="hidden md:flex space-x-6">
-                <a href="#diferenciais" class="hover:text-accent transition">Diferenciais</a>
-                <a href="#imoveis" class="hover:text-accent transition">Imóveis</a>
-                <a href="#depoimentos" class="hover:text-accent transition">Depoimentos</a>
-                <a href="#faq" class="hover:text-accent transition">FAQ</a>
-                <a href="https://www.imoveisbv.com.br/imoveis" class="hover:text-accent transition">Portal</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#diferenciais" class="nav-link text-gray-700 hover:text-primary transition">Diferenciais</a>
+                <a href="#imoveis" class="nav-link text-gray-700 hover:text-primary transition">Imóveis</a>
+                <a href="#depoimentos" class="nav-link text-gray-700 hover:text-primary transition">Depoimentos</a>
+                <a href="#faq" class="nav-link text-gray-700 hover:text-primary transition">FAQ</a>
+                <a href="https://www.imoveisbv.com.br/imoveis" class="nav-link text-gray-700 hover:text-primary transition">Portal</a>
             </div>
-            <a href="#contato" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-secondary transition font-medium">
+            <a href="#contato" class="btn-primary bg-primary text-white px-6 py-3 rounded-full hover:bg-secondary font-medium text-sm md:text-base">
                 Contato
             </a>
         </div>
@@ -127,21 +208,21 @@
 
     <!-- Hero Section -->
     <section class="hero-gradient text-white py-20 md:py-32">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center fade-in">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight font-display">
                     Imóveis Exclusivos de Alto Padrão no Tatuapé <br>
-                    <span class="text-white">Que Você Não Encontrará nos Portais!</span>
+                    <span class="font-light">Que Você Não Encontrará nos Portais!</span>
                 </h1>
-                <p class="text-xl mb-10 max-w-2xl mx-auto">
-                    Descubra opções selecionadas para sua família, com segurança, espaço e sofisticação — sem precisar disputar com milhas de compradores.
+                <p class="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-90">
+                    Descubra opções selecionadas para sua família, com segurança, espaço e sofisticação — sem precisar disputar com milhares de compradores.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                     <a href="https://wa.me/5511947987584?text=Gostaria%20de%20conhecer%20imóveis%20exclusivos" 
-                       class="bg-white text-primary font-bold px-8 py-4 rounded-full hover:bg-gray-100 transition text-lg">
+                       class="btn-primary bg-white text-primary font-medium px-8 py-4 rounded-full hover:bg-gray-50 text-lg">
                         <i class="fab fa-whatsapp mr-2"></i> QUERO IMÓVEIS EXCLUSIVOS
                     </a>
-                    <a href="#video" class="bg-primary text-white font-bold px-8 py-4 rounded-full hover:bg-secondary transition text-lg border-2 border-white">
+                    <a href="#video" class="btn-primary bg-primary text-white font-medium px-8 py-4 rounded-full hover:bg-secondary text-lg border-2 border-white">
                         <i class="fas fa-play mr-2"></i> ASSISTIR VÍDEO
                     </a>
                 </div>
@@ -150,26 +231,26 @@
     </section>
 
     <!-- Credibility Section -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl font-bold mb-6 text-primary">
+    <section class="section bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center fade-in">
+                <h2 class="text-3xl font-bold mb-6 text-primary font-display">
                     Com 10 anos de experiência e uma rede exclusiva, Fabiana Bettoni oferece acesso a imóveis que não estão anunciados.
                 </h2>
-                <p class="text-xl text-gray-600 mb-8">
+                <p class="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
                     Aqui, você não compete — você recebe oportunidades únicas, cuidadosamente selecionadas para atender às necessidades da sua família.
                 </p>
                 <div class="flex flex-wrap justify-center gap-8 mt-12">
-                    <div class="bg-white p-6 rounded-lg shadow-md w-48">
-                        <div class="text-4xl font-bold text-primary mb-2">100+</div>
+                    <div class="bg-white p-8 rounded-xl shadow-sm w-48 fade-in" style="animation-delay: 0.1s;">
+                        <div class="text-4xl font-bold text-primary mb-2 font-display">100+</div>
                         <div class="text-gray-600">Famílias atendidas</div>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md w-48">
-                        <div class="text-4xl font-bold text-primary mb-2">R$2M+</div>
+                    <div class="bg-white p-8 rounded-xl shadow-sm w-48 fade-in" style="animation-delay: 0.2s;">
+                        <div class="text-4xl font-bold text-primary mb-2 font-display">R$2M+</div>
                         <div class="text-gray-600">Imóveis premium</div>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md w-48">
-                        <div class="text-4xl font-bold text-primary mb-2">0%</div>
+                    <div class="bg-white p-8 rounded-xl shadow-sm w-48 fade-in" style="animation-delay: 0.3s;">
+                        <div class="text-4xl font-bold text-primary mb-2 font-display">0%</div>
                         <div class="text-gray-600">Pressão na negociação</div>
                     </div>
                 </div>
@@ -177,98 +258,97 @@
         </div>
     </section>
 
-    <!-- Featured Properties -->
-    <section id="imoveis" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center text-primary">
-                Destaques no Tatuapé
-            </h2>
+   <!-- Similar Properties -->
+    <section class="bg-gray-50 py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-primary mb-12 text-center font-display">Destaques no Tatuapé</h2>
+            
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Property 1 -->
-                <div class="property-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <a href="https://www.imoveisbv.com.br/imovel/apartamento-com-3-quartos-a-venda-tatuape-vila-gomes-cardim-200m2" data-lightbox="property" data-title="Apartamento 200m² - Tatuapé">
-                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Apartamento Tatuapé" class="w-full h-64 object-cover">
+                <div class="property-card bg-white fade-in">
+                    <a href="https://www.imoveisbv.com.br/comprar/sp/sao-paulo/vila-carrao/casa/75967580" data-lightbox="similar-properties" data-title="Casa em Condomínio Fechado - Vila Carrão | Ref.: CA00028"target="_blank">
+                        <img src="https://i.imgur.com/Lb9w8jh.jpeg" alt="Casa em Condomínio Fechado - Vila Carrão" class="w-full h-64 object-cover">
                     </a>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-primary">Apartamento 200m²</h3>
-                        <p class="text-gray-600 mb-4">Tatuapé - Vila Gomes Cardim</p>
-                        <div class="flex justify-between items-center">
-                            <span class="font-bold text-lg text-secondary">R$ 2.500.000</span>
-                            <a href="https://www.imoveisbv.com.br/imovel/apartamento-com-3-quartos-a-venda-tatuape-vila-gomes-cardim-200m2" class="text-primary hover:text-secondary">Ver detalhes</a>
+                        <h3 class="text-xl font-bold mb-2 text-primary">Casa em Condomínio Fechado</h3>
+                        <p class="text-gray-600 mb-1">Vila Carrão | Ref.: CA00028</p>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="font-bold text-lg text-secondary">R$ 3.500.000</span>
+                            <a href="https://www.imoveisbv.com.br/comprar/sp/sao-paulo/vila-carrao/casa/75967580" class="text-primary hover:text-secondary transition">Ver detalhes</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Property 2 -->
-                <div class="property-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <a href="https://www.imoveisbv.com.br/imovel/apartamento-com-4-quartos-a-venda-tatuape-vila-santa-izabel-300m2" data-lightbox="property" data-title="Cobertura 300m² - Tatuapé">
-                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80" alt="Cobertura Tatuapé" class="w-full h-64 object-cover">
+                <div class="property-card bg-white fade-in">
+                    <a href="https://www.imoveisbv.com.br/comprar/sp/sao-paulo/quarta-parada/apartamento/76558861/" data-lightbox="similar-properties" data-title="Apartamento a venda decorado - Varanda Gourmet - Belenzinho | Ref.: AP00516"target="_blank">
+                        <img src="https://i.imgur.com/2Nnfima.jpeg" alt="Apartamento a venda decorado - Belenzinho" class="w-full h-64 object-cover">
                     </a>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-primary">Cobertura 300m²</h3>
-                        <p class="text-gray-600 mb-4">Tatuapé - Vila Santa Izabel</p>
-                        <div class="flex justify-between items-center">
-                            <span class="font-bold text-lg text-secondary">R$ 3.800.000</span>
-                            <a href="https://www.imoveisbv.com.br/imovel/apartamento-com-4-quartos-a-venda-tatuape-vila-santa-izabel-300m2" class="text-primary hover:text-secondary">Ver detalhes</a>
+                        <h3 class="text-xl font-bold mb-2 text-primary">Apartamento Decorado</h3>
+                        <p class="text-gray-600 mb-1">Belenzinho | Ref.: AP00516</p>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="font-bold text-lg text-secondary">R$ 1.800.000</span>
+                            <a href="https://www.imoveisbv.com.br/comprar/sp/sao-paulo/quarta-parada/apartamento/76558861/" class="text-primary hover:text-secondary transition">Ver detalhes</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Property 3 -->
-                <div class="property-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <a href="https://www.imoveisbv.com.br/imovel/apartamento-com-3-quartos-a-venda-tatuape-vila-constancia-180m2" data-lightbox="property" data-title="Apartamento 180m² - Tatuapé">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Apartamento Tatuapé" class="w-full h-64 object-cover">
+                <div class="property-card bg-white fade-in">
+                    <a href="https://www.imoveisbv.com.br/comprar/sp/sao-paulo/tatuape/apartamento/76871253" data-lightbox="similar-properties" data-title="Apartamento a Venda - Tatuapé - Varanda Gourmet | Ref.: AP00534"target="_blank">
+                        <img src="https://i.imgur.com/VQrPgCi.jpeg" alt="Apartamento a Venda - Tatuapé" class="w-full h-64 object-cover">
                     </a>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-primary">Apartamento 180m²</h3>
-                        <p class="text-gray-600 mb-4">Tatuapé - Vila Constância</p>
-                        <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-bold mb-2 text-primary">Apartamento Varanda Gourmet</h3>
+                        <p class="text-gray-600 mb-1">Tatuapé | Ref.: AP00534</p>
+                        <div class="flex justify-between items-center mt-4">
                             <span class="font-bold text-lg text-secondary">R$ 2.200.000</span>
-                            <a href="https://www.imoveisbv.com.br/imovel/apartamento-com-3-quartos-a-venda-tatuape-vila-constancia-180m2" class="text-primary hover:text-secondary">Ver detalhes</a>
+                            <a href="https://www.imoveisbv.com.br/comprar/sp/sao-paulo/tatuape/apartamento/76871253" class="text-primary hover:text-secondary transition">Ver detalhes</a>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="text-center mt-12">
-                <a href="https://www.imoveisbv.com.br/imoveis" class="inline-block bg-primary text-white font-bold px-8 py-3 rounded-full hover:bg-secondary transition">
-                    Ver mais imóveis no portal
+                <a href="https://www.imoveisbv.com.br/imoveis" class="btn-primary inline-block bg-primary text-white font-medium px-8 py-3 rounded-full hover:bg-secondary transition"target="_blank">
+                    EXPLORAR MAIS IMÓVEIS
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Video Section -->
-    <section id="video" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold mb-12 text-center text-primary">
-                    Veja como funciona nosso processo exclusivo
+    <section id="video" class="section bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto fade-in">
+                <h2 class="text-3xl font-bold mb-12 text-center text-primary font-display">
+                   Oportunidade Única na Vila Carrão: Faça um Tour em Vídeo por Este Imóvel em Destaque!
                 </h2>
-                <div class="video-container rounded-xl overflow-hidden shadow-xl">
+                <div class="video-container">
                     <!-- Replace with actual video embed -->
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/UGipVlq8iYk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
-    <section id="depoimentos" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center text-primary">
+    <section id="depoimentos" class="section bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center text-primary font-display fade-in">
                 O que dizem famílias que encontraram seu lar ideal
             </h2>
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Testimonial 1 -->
-                <div class="testimonial-card bg-white p-8 rounded-lg border border-gray-100">
+                <div class="testimonial-card bg-white p-8 rounded-xl fade-in" style="animation-delay: 0.1s;">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gray-200 mr-4 overflow-hidden">
+                        <div class="w-12 h-12 rounded-full bg-gray-100 mr-4 overflow-hidden">
                             <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Daniela" class="w-full h-full object-cover">
                         </div>
                         <div>
                             <h4 class="font-bold">Carlos e Daniela</h4>
-                            <div class="text-yellow-500">
+                            <div class="text-yellow-400">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -283,14 +363,14 @@
                 </div>
                 
                 <!-- Testimonial 2 -->
-                <div class="testimonial-card bg-white p-8 rounded-lg border border-gray-100">
+                <div class="testimonial-card bg-white p-8 rounded-xl fade-in" style="animation-delay: 0.2s;">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gray-200 mr-4 overflow-hidden">
+                        <div class="w-12 h-12 rounded-full bg-gray-100 mr-4 overflow-hidden">
                             <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Roberto" class="w-full h-full object-cover">
                         </div>
                         <div>
                             <h4 class="font-bold">Roberto e família</h4>
-                            <div class="text-yellow-500">
+                            <div class="text-yellow-400">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -305,14 +385,14 @@
                 </div>
                 
                 <!-- Testimonial 3 -->
-                <div class="testimonial-card bg-white p-8 rounded-lg border border-gray-100">
+                <div class="testimonial-card bg-white p-8 rounded-xl fade-in" style="animation-delay: 0.3s;">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gray-200 mr-4 overflow-hidden">
+                        <div class="w-12 h-12 rounded-full bg-gray-100 mr-4 overflow-hidden">
                             <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Patrícia" class="w-full h-full object-cover">
                         </div>
                         <div>
                             <h4 class="font-bold">Patrícia e Marcos</h4>
-                            <div class="text-yellow-500">
+                            <div class="text-yellow-400">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -330,14 +410,14 @@
     </section>
 
     <!-- Features -->
-    <section id="diferenciais" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center text-primary">
+    <section id="diferenciais" class="section bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center text-primary font-display fade-in">
                 Por que escolher Fabiana Bettoni Imóveis?
             </h2>
             <div class="grid md:grid-cols-4 gap-8">
                 <!-- Feature 1 -->
-                <div class="text-center">
+                <div class="text-center fade-in" style="animation-delay: 0.1s;">
                     <div class="feature-icon">
                         <i class="fas fa-lock"></i>
                     </div>
@@ -348,7 +428,7 @@
                 </div>
                 
                 <!-- Feature 2 -->
-                <div class="text-center">
+                <div class="text-center fade-in" style="animation-delay: 0.2s;">
                     <div class="feature-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
@@ -359,7 +439,7 @@
                 </div>
                 
                 <!-- Feature 3 -->
-                <div class="text-center">
+                <div class="text-center fade-in" style="animation-delay: 0.3s;">
                     <div class="feature-icon">
                         <i class="fas fa-home"></i>
                     </div>
@@ -370,7 +450,7 @@
                 </div>
                 
                 <!-- Feature 4 -->
-                <div class="text-center">
+                <div class="text-center fade-in" style="animation-delay: 0.4s;">
                     <div class="feature-icon">
                         <i class="fas fa-file-contract"></i>
                     </div>
@@ -384,47 +464,47 @@
     </section>
 
     <!-- Perfect For -->
-    <section class="py-16 bg-primary text-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold mb-8 text-center">
+    <section class="section bg-primary text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto fade-in">
+                <h2 class="text-3xl font-bold mb-8 text-center font-display">
                     Perfeito para quem...
                 </h2>
                 <div class="grid md:grid-cols-2 gap-6">
-                    <div class="flex items-start">
+                    <div class="flex items-start fade-in" style="animation-delay: 0.1s;">
                         <div class="text-white mr-4 mt-1">
                             <i class="fas fa-check-circle text-xl"></i>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold mb-2">Busca mais espaço para os filhos</h3>
-                            <p>Imóveis com áreas generosas e infraestrutura familiar em condomínios seguros.</p>
+                            <p class="opacity-90">Imóveis com áreas generosas e infraestrutura familiar em condomínios seguros.</p>
                         </div>
                     </div>
-                    <div class="flex items-start">
+                    <div class="flex items-start fade-in" style="animation-delay: 0.2s;">
                         <div class="text-white mr-4 mt-1">
                             <i class="fas fa-check-circle text-xl"></i>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold mb-2">Valoriza segurança e localização</h3>
-                            <p>O Tatuapé oferece o melhor da cidade com tranquilidade para sua família.</p>
+                            <p class="opacity-90">O Tatuapé oferece o melhor da cidade com tranquilidade para sua família.</p>
                         </div>
                     </div>
-                    <div class="flex items-start">
+                    <div class="flex items-start fade-in" style="animation-delay: 0.3s;">
                         <div class="text-white mr-4 mt-1">
                             <i class="fas fa-check-circle text-xl"></i>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold mb-2">Quer um investimento seguro</h3>
-                            <p>Imóveis que valorizam com o tempo, em uma das regiões mais valorizadas de São Paulo.</p>
+                            <p class="opacity-90">Imóveis que valorizam com o tempo, em uma das regiões mais valorizadas de São Paulo.</p>
                         </div>
                     </div>
-                    <div class="flex items-start">
+                    <div class="flex items-start fade-in" style="animation-delay: 0.4s;">
                         <div class="text-white mr-4 mt-1">
                             <i class="fas fa-check-circle text-xl"></i>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold mb-2">Odeia atendimento genérico</h3>
-                            <p>Serviço personalizado e transparente, focado nas necessidades reais da sua família.</p>
+                            <p class="opacity-90">Serviço personalizado e transparente, focado nas necessidades reais da sua família.</p>
                         </div>
                     </div>
                 </div>
@@ -433,19 +513,19 @@
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center text-primary">
+    <section id="faq" class="section bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center text-primary font-display fade-in">
                 Perguntas frequentes
             </h2>
             <div class="max-w-3xl mx-auto">
                 <!-- FAQ Item 1 -->
-                <div class="mb-6">
-                    <button onclick="toggleFAQ(1)" class="flex justify-between items-center w-full text-left bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition">
+                <div class="mb-4 faq-item fade-in" style="animation-delay: 0.1s;">
+                    <button onclick="toggleFAQ(1)" class="faq-question flex justify-between items-center w-full text-left bg-gray-50 p-6">
                         <h3 class="text-lg font-bold text-primary">Preciso ter o dinheiro em mãos agora?</h3>
-                        <i class="fas fa-chevron-down text-accent"></i>
+                        <i class="fas fa-chevron-down text-accent transition-transform"></i>
                     </button>
-                    <div id="faq-answer-1" class="hidden bg-gray-50 p-6 rounded-b-lg">
+                    <div id="faq-answer-1" class="hidden bg-gray-50 p-6">
                         <p class="text-gray-600">
                             Não. Ajudamos você a planejar, mesmo que a compra seja a médio prazo. Podemos orientar sobre financiamento, timing de compra e estratégias para maximizar seu investimento.
                         </p>
@@ -453,12 +533,12 @@
                 </div>
                 
                 <!-- FAQ Item 2 -->
-                <div class="mb-6">
-                    <button onclick="toggleFAQ(2)" class="flex justify-between items-center w-full text-left bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition">
+                <div class="mb-4 faq-item fade-in" style="animation-delay: 0.2s;">
+                    <button onclick="toggleFAQ(2)" class="faq-question flex justify-between items-center w-full text-left bg-gray-50 p-6">
                         <h3 class="text-lg font-bold text-primary">Como sei que os imóveis são realmente exclusivos?</h3>
-                        <i class="fas fa-chevron-down text-accent"></i>
+                        <i class="fas fa-chevron-down text-accent transition-transform"></i>
                     </button>
-                    <div id="faq-answer-2" class="hidden bg-gray-50 p-6 rounded-b-lg">
+                    <div id="faq-answer-2" class="hidden bg-gray-50 p-6">
                         <p class="text-gray-600">
                             Nossa rede inclui proprietários que não anunciam publicamente — só negociamos com indicação. Muitos são imóveis de famílias que preferem vender de forma discreta, sem exposição nos portais.
                         </p>
@@ -466,12 +546,12 @@
                 </div>
                 
                 <!-- FAQ Item 3 -->
-                <div class="mb-6">
-                    <button onclick="toggleFAQ(3)" class="flex justify-between items-center w-full text-left bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition">
+                <div class="mb-4 faq-item fade-in" style="animation-delay: 0.3s;">
+                    <button onclick="toggleFAQ(3)" class="faq-question flex justify-between items-center w-full text-left bg-gray-50 p-6">
                         <h3 class="text-lg font-bold text-primary">Qual o valor médio dos imóveis?</h3>
-                        <i class="fas fa-chevron-down text-accent"></i>
+                        <i class="fas fa-chevron-down text-accent transition-transform"></i>
                     </button>
-                    <div id="faq-answer-3" class="hidden bg-gray-50 p-6 rounded-b-lg">
+                    <div id="faq-answer-3" class="hidden bg-gray-50 p-6">
                         <p class="text-gray-600">
                             Trabalhamos principalmente com imóveis acima de R$ 2 milhões, focados no público de alto padrão que valoriza exclusividade, qualidade de vida e potencial de valorização.
                         </p>
@@ -479,12 +559,12 @@
                 </div>
                 
                 <!-- FAQ Item 4 -->
-                <div class="mb-6">
-                    <button onclick="toggleFAQ(4)" class="flex justify-between items-center w-full text-left bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition">
+                <div class="mb-4 faq-item fade-in" style="animation-delay: 0.4s;">
+                    <button onclick="toggleFAQ(4)" class="faq-question flex justify-between items-center w-full text-left bg-gray-50 p-6">
                         <h3 class="text-lg font-bold text-primary">Como funciona o atendimento inicial?</h3>
-                        <i class="fas fa-chevron-down text-accent"></i>
+                        <i class="fas fa-chevron-down text-accent transition-transform"></i>
                     </button>
-                    <div id="faq-answer-4" class="hidden bg-gray-50 p-6 rounded-b-lg">
+                    <div id="faq-answer-4" class="hidden bg-gray-50 p-6">
                         <p class="text-gray-600">
                             Começamos com uma conversa para entender suas necessidades, preferências e timing. Em seguida, apresentamos opções alinhadas ao seu perfil, sem compromisso. Todo o processo é transparente e respeitoso com seu tempo.
                         </p>
@@ -495,20 +575,20 @@
     </section>
 
     <!-- CTA -->
-    <section class="py-16 bg-secondary text-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl font-bold mb-6">
+    <section class="section bg-secondary text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center fade-in">
+                <h2 class="text-3xl font-bold mb-6 font-display">
                     Encontre Seu Imóvel Ideal sem Precisar Procurar em Portais Lotados
                 </h2>
-                <p class="text-xl mb-10">
+                <p class="text-xl mb-10 opacity-90">
                     Vagas limitadas para consultoria este mês — garanta seu atendimento personalizado.
                 </p>
                 <a href="https://wa.me/5511947987584?text=Gostaria%20de%20conhecer%20imóveis%20exclusivos" 
-                   class="inline-block bg-white text-primary font-bold px-12 py-4 rounded-full hover:bg-gray-100 transition text-lg">
+                   class="btn-primary inline-block bg-white text-primary font-medium px-12 py-4 rounded-full hover:bg-gray-100 text-lg">
                     <i class="fab fa-whatsapp mr-2"></i> QUERO CONHECER IMÓVEIS EXCLUSIVOS
                 </a>
-                <p class="mt-4">
+                <p class="mt-4 opacity-80">
                     Atendimento personalizado, sem compromisso.
                 </p>
             </div>
@@ -516,64 +596,64 @@
     </section>
 
     <!-- Footer -->
-    <footer id="contato" class="bg-primary text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <img src="https://cdn2.uso.com.br/sites/logos/28476.png" alt="Fabiana Bettoni Imóveis" class="logo-img mr-3">
+    <footer id="contato" class="bg-primary text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="fade-in" style="animation-delay: 0.1s;">
+                    <div class="flex items-center mb-6">
+                        <img src="https://i.imgur.com/HZRzfjY.png" alt="Fabiana Bettoni Imóveis" class="logo-img mr-3">
                     </div>
-                    <p class="mb-4">
+                    <p class="mb-6 opacity-90">
                         Especialista em imóveis de alto padrão no Tatuapé, com acesso a oportunidades exclusivas fora dos portais convencionais.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="#" class="text-white hover:text-secondary transition"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-white hover:text-gray-200 transition text-xl" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-gray-200 transition text-xl" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white hover:text-gray-200 transition text-xl" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
                 
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Contato</h3>
-                    <ul class="space-y-2">
+                <div class="fade-in" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-bold mb-6 font-display">Contato</h3>
+                    <ul class="space-y-3">
                         <li class="flex items-center">
-                            <i class="fas fa-phone-alt mr-3 text-white"></i>
-                            <a href="tel:+5511947987584" class="hover:text-secondary transition">(11) 94798-7584</a>
+                            <i class="fas fa-phone-alt mr-3 text-white opacity-80"></i>
+                            <a href="tel:+5511947987584" class="footer-link opacity-90 hover:opacity-100">(11) 94798-7584</a>
                         </li>
                         <li class="flex items-center">
-                            <i class="fab fa-whatsapp mr-3 text-white"></i>
-                            <a href="https://wa.me/5511947987584" class="hover:text-secondary transition">WhatsApp</a>
+                            <i class="fab fa-whatsapp mr-3 text-white opacity-80"></i>
+                            <a href="https://wa.me/5511947987584" class="footer-link opacity-90 hover:opacity-100">WhatsApp</a>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-envelope mr-3 text-white"></i>
-                            <a href="mailto:fabiana@imoveisbv.com.br" class="hover:text-secondary transition">fabiana@imoveisbv.com.br</a>
+                            <i class="fas fa-envelope mr-3 text-white opacity-80"></i>
+                            <a href="mailto:fabiana@imoveisbv.com.br" class="footer-link opacity-90 hover:opacity-100">fabiana@imoveisbv.com.br</a>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-3 text-white"></i>
-                            <span>Tatuapé, São Paulo - SP</span>
+                            <i class="fas fa-map-marker-alt mr-3 text-white opacity-80"></i>
+                            <span class="opacity-90">Tatuapé, São Paulo - SP</span>
                         </li>
                     </ul>
                 </div>
                 
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Links Úteis</h3>
-                    <ul class="space-y-2">
-                        <li><a href="https://www.imoveisbv.com.br/imoveis" class="hover:text-secondary transition">Buscar Imóveis</a></li>
-                        <li><a href="https://www.imoveisbv.com.br/cadastre-seu-imovel" class="hover:text-secondary transition">Anunciar meu Imóvel</a></li>
-                        <li><a href="https://www.imoveisbv.com.br/fichas-cadastrais" class="hover:text-secondary transition">Fichas Cadastrais</a></li>
-                        <li><a href="https://www.imoveisbv.com.br/encomende-seu-imovel" class="hover:text-secondary transition">Encomendar um Imóvel</a></li>
-                        <li><a href="https://www.imoveisbv.com.br/servicos" class="hover:text-secondary transition">Serviços</a></li>
+                <div class="fade-in" style="animation-delay: 0.3s;">
+                    <h3 class="text-xl font-bold mb-6 font-display">Links Úteis</h3>
+                    <ul class="space-y-3">
+                        <li><a href="https://www.imoveisbv.com.br/imoveis" class="footer-link opacity-90 hover:opacity-100">Buscar Imóveis</a></li>
+                        <li><a href="https://www.imoveisbv.com.br/cadastre-seu-imovel" class="footer-link opacity-90 hover:opacity-100">Anunciar meu Imóvel</a></li>
+                        <li><a href="https://www.imoveisbv.com.br/fichas-cadastrais" class="footer-link opacity-90 hover:opacity-100">Fichas Cadastrais</a></li>
+                        <li><a href="https://www.imoveisbv.com.br/encomende-seu-imovel" class="footer-link opacity-90 hover:opacity-100">Encomendar um Imóvel</a></li>
+                        <li><a href="https://www.imoveisbv.com.br/servicos" class="footer-link opacity-90 hover:opacity-100">Serviços</a></li>
                     </ul>
                     
-                    <div class="mt-6">
+                    <div class="mt-8">
                         <h4 class="font-bold mb-2">Horário de atendimento</h4>
-                        <p>Segunda a sexta: 9h às 18h</p>
-                        <p>Sábado: 9h às 13h (com agendamento)</p>
+                        <p class="opacity-90">Segunda a sexta: 9h às 18h</p>
+                        <p class="opacity-90">Sábado: 9h às 13h (com agendamento)</p>
                     </div>
                 </div>
             </div>
             
-            <div class="border-t border-white border-opacity-20 mt-12 pt-8 text-center text-white text-opacity-70">
+            <div class="border-t border-white border-opacity-20 mt-12 pt-8 text-center text-white text-opacity-70 fade-in" style="animation-delay: 0.4s;">
                 <p>&copy; 2023 Fabiana Bettoni Imóveis. Todos os direitos reservados.</p>
             </div>
         </div>
@@ -581,10 +661,10 @@
 
     <!-- Chat Modal -->
     <div id="chat-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
-            <div class="flex justify-between items-center bg-primary text-white p-4">
-                <h3 class="text-lg font-bold">Atendimento Online</h3>
-                <button onclick="closeChatModal()" class="text-white hover:text-secondary">
+        <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden transform transition-all duration-300 scale-95 opacity-0" id="modal-content">
+            <div class="flex justify-between items-center bg-primary text-white p-6">
+                <h3 class="text-lg font-bold font-display">Atendimento Online</h3>
+                <button onclick="closeChatModal()" class="text-white hover:text-gray-200 text-xl">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -601,7 +681,7 @@
         // Toggle FAQ answers
         function toggleFAQ(id) {
             const answer = document.getElementById(`faq-answer-${id}`);
-            const icon = document.querySelector(`#faq button:nth-child(${id}) i`);
+            const icon = document.querySelector(`#faq-answer-${id}`).previousElementSibling.querySelector('i');
             
             answer.classList.toggle('hidden');
             icon.classList.toggle('fa-chevron-down');
@@ -610,13 +690,28 @@
         
         // Chat Modal functions
         function openChatModal() {
-            document.getElementById('chat-modal').classList.remove('hidden');
+            const modal = document.getElementById('chat-modal');
+            const content = document.getElementById('modal-content');
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                content.classList.remove('scale-95');
+                content.classList.remove('opacity-0');
+            }, 10);
+            
             document.body.style.overflow = 'hidden';
         }
         
         function closeChatModal() {
-            document.getElementById('chat-modal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
+            const content = document.getElementById('modal-content');
+            
+            content.classList.add('scale-95');
+            content.classList.add('opacity-0');
+            
+            setTimeout(() => {
+                document.getElementById('chat-modal').classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 300);
         }
         
         // Close modal when clicking outside
@@ -629,6 +724,8 @@
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') === '#chat-modal') return;
+                
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
@@ -649,6 +746,24 @@
             'resizeDuration': 200,
             'wrapAround': true,
             'alwaysShowNavOnTouchDevices': true
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>

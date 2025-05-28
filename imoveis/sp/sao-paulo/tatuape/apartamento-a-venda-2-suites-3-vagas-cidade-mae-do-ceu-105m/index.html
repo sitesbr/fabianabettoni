@@ -173,6 +173,15 @@
         .swiper-button-next:after, .swiper-button-prev:after {
             font-size: 20px;
         }
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: rgba(255,255,255,0.5);
+            opacity: 1;
+        }
+        .swiper-pagination-bullet-active {
+            background: #43b7ce;
+        }
         .feature-icon {
             width: 48px;
             height: 48px;
@@ -262,6 +271,14 @@
             font-weight: 600;
             font-size: 1.25rem;
         }
+        .gallery-thumbnail {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery-thumbnail:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body class="font-sans text-gray-700 antialiased">
@@ -291,10 +308,9 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Carousel -->
     <section class="relative">
-        <!-- Image Gallery Swiper -->
-        <div class="swiper property-gallery">
+        <div class="swiper property-carousel">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <img src="https://i.imgur.com/VQrPgCi.jpeg" alt="Sala de estar do apartamento" class="w-full h-[70vh] object-cover">
@@ -309,6 +325,7 @@
                     <img src="https://i.imgur.com/v0oBBeB.jpeg" alt="Banheiro do apartamento" class="w-full h-[70vh] object-cover">
                 </div>
             </div>
+            <div class="swiper-pagination"></div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
@@ -329,6 +346,40 @@
                         </a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="bg-white py-12">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-primary mb-8 text-center font-display">Galeria de Fotos</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <a href="https://i.imgur.com/VQrPgCi.jpeg" data-lightbox="property-gallery" data-title="Sala de estar" class="gallery-thumbnail">
+                    <img src="https://i.imgur.com/VQrPgCi.jpeg" alt="Sala de estar" class="w-full h-48 object-cover rounded-lg">
+                </a>
+                <a href="https://i.imgur.com/9Kglvv9.jpeg" data-lightbox="property-gallery" data-title="Cozinha" class="gallery-thumbnail">
+                    <img src="https://i.imgur.com/9Kglvv9.jpeg" alt="Cozinha" class="w-full h-48 object-cover rounded-lg">
+                </a>
+                <a href="https://i.imgur.com/aSabIgv.jpeg" data-lightbox="property-gallery" data-title="Quarto principal" class="gallery-thumbnail">
+                    <img src="https://i.imgur.com/aSabIgv.jpeg" alt="Quarto principal" class="w-full h-48 object-cover rounded-lg">
+                </a>
+                <a href="https://i.imgur.com/v0oBBeB.jpeg" data-lightbox="property-gallery" data-title="Banheiro" class="gallery-thumbnail">
+                    <img src="https://i.imgur.com/v0oBBeB.jpeg" alt="Banheiro" class="w-full h-48 object-cover rounded-lg">
+                </a>
+                <a href="https://i.imgur.com/vdm97Cz.jpeg" data-lightbox="property-gallery" data-title="Varanda" class="gallery-thumbnail">
+                    <img src="https://i.imgur.com/vdm97Cz.jpeg" alt="Varanda" class="w-full h-48 object-cover rounded-lg">
+                </a>
+                <a href="https://i.imgur.com/XLeDUha.jpeg" data-lightbox="property-gallery" data-title="Área de lazer" class="gallery-thumbnail">
+                    <img src="https://i.imgur.com/XLeDUha.jpeg" alt="Área de lazer" class="w-full h-48 object-cover rounded-lg">
+                </a>
+                <a href="https://i.imgur.com/VQrPgCi.jpeg" data-lightbox="property-gallery" data-title="Detalhe da sala" class="gallery-thumbnail">
+                    <img src="https://i.imgur.com/VQrPgCi.jpeg" alt="Detalhe da sala" class="w-full h-48 object-cover rounded-lg">
+                </a>
+                <a href="https://i.imgur.com/9Kglvv9.jpeg" data-lightbox="property-gallery" data-title="Detalhe da cozinha" class="gallery-thumbnail">
+                    <img src="https://i.imgur.com/9Kglvv9.jpeg" alt="Detalhe da cozinha" class="w-full h-48 object-cover rounded-lg">
+                </a>
             </div>
         </div>
     </section>
@@ -629,7 +680,7 @@
                                 <i class="fas fa-hospital"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-800">Hospitais de Excelência</h4>
+                                <h4 class="font-bold text-gray-800">Hospitals de Excelência</h4>
                                 <p class="text-gray-600">Hospital São Luiz e Hospital Santa Catarina a 5 minutos de carro</p>
                             </div>
                         </div>
@@ -864,12 +915,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
     
     <script>
-        // Initialize Swiper
-        const swiper = new Swiper('.property-gallery', {
+        // Initialize Swiper Carousel
+        const carousel = new Swiper('.property-carousel', {
             loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
             },
         });
         

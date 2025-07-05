@@ -271,13 +271,19 @@
             font-weight: 600;
             font-size: 1.25rem;
         }
-        .gallery-thumbnail {
-            transition: all 0.3s ease;
-            cursor: pointer;
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .gallery-thumbnail:hover {
-            transform: scale(1.02);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-item img {
+            transition: transform 0.5s ease, box-shadow 0.3s ease;
+        }
+        [data-lightbox="property-gallery"] {
+            display: block;
+            position: relative;
         }
     </style>
 </head>
@@ -286,6 +292,46 @@
     <a href="https://wa.me/5511947987584" class="floating-btn whatsapp-btn" aria-label="WhatsApp">
         <i class="fab fa-whatsapp text-2xl"></i>
     </a>
+
+    <!-- Atendimento Online Button -->
+    <button id="atendimento-btn" class="fixed bottom-20 right-20 z-[999] bg-primary text-white border-none px-6 py-3 rounded-full cursor-pointer shadow-lg hover:bg-secondary transition-all">
+        Atendimento Online
+    </button>
+
+    <!-- Atendimento Lightbox -->
+    <div id="atendimento-lightbox" class="hidden fixed inset-0 w-full h-full bg-black bg-opacity-90 z-[1000] flex justify-center items-center">
+        <div class="relative w-[90%] h-[80%] max-w-4xl bg-white rounded-lg overflow-hidden">
+            <span id="close-lightbox" class="absolute top-4 right-5 text-gray-700 text-3xl cursor-pointer z-[1001] hover:text-primary">
+                &times;
+            </span>
+            <iframe src="https://www.univenchat.com.br/atendimento.aspx?empresa=28476" 
+                   class="w-full h-full border-none" 
+                   title="Atendimento Online">
+            </iframe>
+        </div>
+    </div>
+
+    <script>
+        // Botão de atendimento
+        document.getElementById('atendimento-btn').addEventListener('click', function() {
+            document.getElementById('atendimento-lightbox').classList.remove('hidden');
+            document.getElementById('atendimento-lightbox').classList.add('flex');
+        });
+
+        // Fechar lightbox
+        document.getElementById('close-lightbox').addEventListener('click', function() {
+            document.getElementById('atendimento-lightbox').classList.add('hidden');
+            document.getElementById('atendimento-lightbox').classList.remove('flex');
+        });
+
+        // Fechar ao clicar fora
+        document.getElementById('atendimento-lightbox').addEventListener('click', function(e) {
+            if(e.target === this) {
+                this.classList.add('hidden');
+                this.classList.remove('flex');
+            }
+        });
+    </script>
 
     <!-- Header -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
@@ -351,34 +397,34 @@
     </section>
 
     <!-- Gallery Section -->
-    <section class="bg-white py-12">
+    <section class="bg-white py-16">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-primary mb-8 text-center font-display">Galeria de Fotos</h2>
+            <h2 class="text-3xl font-bold text-primary mb-12 text-center font-display">Galeria de Fotos</h2>
             
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <a href="https://i.imgur.com/VQrPgCi.jpeg" data-lightbox="property-gallery" data-title="Sala de estar" class="gallery-thumbnail">
-                    <img src="https://i.imgur.com/VQrPgCi.jpeg" alt="Sala de estar" class="w-full h-48 object-cover rounded-lg">
+            <div class="gallery-container grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                <a href="https://i.imgur.com/VQrPgCi.jpeg" data-lightbox="property-gallery" data-title="Sala de estar" class="gallery-item overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+                    <img src="https://i.imgur.com/VQrPgCi.jpeg" alt="Sala de estar" class="w-full h-52 object-cover hover:scale-105 transition-transform duration-500 cursor-zoom-in">
                 </a>
-                <a href="https://i.imgur.com/9Kglvv9.jpeg" data-lightbox="property-gallery" data-title="Cozinha" class="gallery-thumbnail">
-                    <img src="https://i.imgur.com/9Kglvv9.jpeg" alt="Cozinha" class="w-full h-48 object-cover rounded-lg">
+                <a href="https://i.imgur.com/9Kglvv9.jpeg" data-lightbox="property-gallery" data-title="Cozinha" class="gallery-item overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+                    <img src="https://i.imgur.com/9Kglvv9.jpeg" alt="Cozinha" class="w-full h-52 object-cover hover:scale-105 transition-transform duration-500 cursor-zoom-in">
                 </a>
-                <a href="https://i.imgur.com/aSabIgv.jpeg" data-lightbox="property-gallery" data-title="Quarto principal" class="gallery-thumbnail">
-                    <img src="https://i.imgur.com/aSabIgv.jpeg" alt="Quarto principal" class="w-full h-48 object-cover rounded-lg">
+                <a href="https://i.imgur.com/aSabIgv.jpeg" data-lightbox="property-gallery" data-title="Quarto principal" class="gallery-item overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+                    <img src="https://i.imgur.com/aSabIgv.jpeg" alt="Quarto principal" class="w-full h-52 object-cover hover:scale-105 transition-transform duration-500 cursor-zoom-in">
                 </a>
-                <a href="https://i.imgur.com/v0oBBeB.jpeg" data-lightbox="property-gallery" data-title="Banheiro" class="gallery-thumbnail">
-                    <img src="https://i.imgur.com/v0oBBeB.jpeg" alt="Banheiro" class="w-full h-48 object-cover rounded-lg">
+                <a href="https://i.imgur.com/v0oBBeB.jpeg" data-lightbox="property-gallery" data-title="Banheiro" class="gallery-item overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+                    <img src="https://i.imgur.com/v0oBBeB.jpeg" alt="Banheiro" class="w-full h-52 object-cover hover:scale-105 transition-transform duration-500 cursor-zoom-in">
                 </a>
-                <a href="https://i.imgur.com/vdm97Cz.jpeg" data-lightbox="property-gallery" data-title="Varanda" class="gallery-thumbnail">
-                    <img src="https://i.imgur.com/vdm97Cz.jpeg" alt="Varanda" class="w-full h-48 object-cover rounded-lg">
+                <a href="https://i.imgur.com/vdm97Cz.jpeg" data-lightbox="property-gallery" data-title="Varanda" class="gallery-item overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+                    <img src="https://i.imgur.com/vdm97Cz.jpeg" alt="Varanda" class="w-full h-52 object-cover hover:scale-105 transition-transform duration-500 cursor-zoom-in">
                 </a>
-                <a href="https://i.imgur.com/XLeDUha.jpeg" data-lightbox="property-gallery" data-title="Área de lazer" class="gallery-thumbnail">
-                    <img src="https://i.imgur.com/XLeDUha.jpeg" alt="Área de lazer" class="w-full h-48 object-cover rounded-lg">
+                <a href="https://i.imgur.com/XLeDUha.jpeg" data-lightbox="property-gallery" data-title="Área de lazer" class="gallery-item overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+                    <img src="https://i.imgur.com/XLeDUha.jpeg" alt="Área de lazer" class="w-full h-52 object-cover hover:scale-105 transition-transform duration-500 cursor-zoom-in">
                 </a>
-                <a href="https://i.imgur.com/VQrPgCi.jpeg" data-lightbox="property-gallery" data-title="Detalhe da sala" class="gallery-thumbnail">
-                    <img src="https://i.imgur.com/VQrPgCi.jpeg" alt="Detalhe da sala" class="w-full h-48 object-cover rounded-lg">
+                <a href="https://i.imgur.com/VQrPgCi.jpeg" data-lightbox="property-gallery" data-title="Detalhe da sala" class="gallery-item overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+                    <img src="https://i.imgur.com/VQrPgCi.jpeg" alt="Detalhe da sala" class="w-full h-52 object-cover hover:scale-105 transition-transform duration-500 cursor-zoom-in">
                 </a>
-                <a href="https://i.imgur.com/9Kglvv9.jpeg" data-lightbox="property-gallery" data-title="Detalhe da cozinha" class="gallery-thumbnail">
-                    <img src="https://i.imgur.com/9Kglvv9.jpeg" alt="Detalhe da cozinha" class="w-full h-48 object-cover rounded-lg">
+                <a href="https://i.imgur.com/9Kglvv9.jpeg" data-lightbox="property-gallery" data-title="Detalhe da cozinha" class="gallery-item overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+                    <img src="https://i.imgur.com/9Kglvv9.jpeg" alt="Detalhe da cozinha" class="w-full h-52 object-cover hover:scale-105 transition-transform duration-500 cursor-zoom-in">
                 </a>
             </div>
         </div>
@@ -438,19 +484,13 @@
                 <div>
                     <div class="bg-gray-50 p-6 rounded-xl sticky top-24">
                         <h3 class="text-xl font-bold text-primary mb-6 font-display">Solicitar Informações</h3>
-                        <form class="space-y-4">
-                            <div>
-                                <input type="text" placeholder="Seu nome" class="contact-form-input w-full px-0 py-2 bg-transparent focus:outline-none">
-                            </div>
-                            <div>
-                                <input type="email" placeholder="Seu e-mail" class="contact-form-input w-full px-0 py-2 bg-transparent focus:outline-none">
-                            </div>
-                            <div>
-                                <input type="tel" placeholder="Seu telefone" class="contact-form-input w-full px-0 py-2 bg-transparent focus:outline-none">
-                            </div>
-                            <div>
-                                <textarea placeholder="Sua mensagem" class="contact-form-input w-full px-0 py-2 bg-transparent focus:outline-none"></textarea>
-                            </div>
+                        <form action="https://formspree.io/f/xqkreqrp" method="POST" class="space-y-4">
+                            <input type="text" name="nome" placeholder="Seu nome" required class="contact-form-input w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <input type="email" name="email" placeholder="Seu e-mail" required class="contact-form-input w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <input type="tel" name="telefone" placeholder="Seu telefone" required class="contact-form-input w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <textarea name="mensagem" placeholder="Sua mensagem" required class="contact-form-input w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" rows="4"></textarea>
+                            <input type="hidden" name="_subject" value="Novo contato - Solicitar Informações">
+                            <input type="hidden" name="_replyto" value="fabiana@imoveisbv.com.br">
                             <button type="submit" class="btn-primary w-full bg-primary text-white font-medium px-6 py-3 rounded-full hover:bg-secondary transition">
                                 ENVIAR MENSAGEM
                             </button>
@@ -561,43 +601,7 @@
     </section>
 
     <!-- Multimedia Section -->
-    <section class="bg-white py-16">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-primary mb-12 text-center font-display">Conheça o Imóvel</h2>
-            
-            <!-- Tabs -->
-            <div class="flex border-b border-gray-200 mb-8 overflow-x-auto">
-                <button class="tab-button px-6 py-3 font-medium active" data-tab="photos">Fotos</button>
-                <button class="tab-button px-6 py-3 font-medium" data-tab="floorplan">Planta</button>
-            </div>
-            
-            <!-- Tab Contents -->
-            <div class="tab-content active" id="photos">
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <a href="https://i.imgur.com/VQrPgCi.jpeg" data-lightbox="property" data-title="Sala de estar">
-                        <img src="https://i.imgur.com/VQrPgCi.jpeg" alt="Sala de estar" class="w-full h-48 object-cover rounded-lg">
-                    </a>
-                    <a href="https://i.imgur.com/9Kglvv9.jpeg" data-lightbox="property" data-title="Cozinha">
-                        <img src="https://i.imgur.com/9Kglvv9.jpeg" alt="Cozinha" class="w-full h-48 object-cover rounded-lg">
-                    </a>
-                    <a href="https://i.imgur.com/aSabIgv.jpeg" data-lightbox="property" data-title="Quarto">
-                        <img src="https://i.imgur.com/aSabIgv.jpeg" alt="Quarto" class="w-full h-48 object-cover rounded-lg">
-                    </a>
-                    <a href="https://i.imgur.com/v0oBBeB.jpeg" data-lightbox="property" data-title="Banheiro">
-                        <img src="https://i.imgur.com/v0oBBeB.jpeg" alt="Banheiro" class="w-full h-48 object-cover rounded-lg">
-                    </a>
-                    <a href="https://i.imgur.com/vdm97Cz.jpeg" data-lightbox="property" data-title="Varanda">
-                        <img src="https://i.imgur.com/vdm97Cz.jpeg" alt="Varanda" class="w-full h-48 object-cover rounded-lg">
-                    </a>
-                    <a href="https://i.imgur.com/XLeDUha.jpeg" data-lightbox="property" data-title="Área de lazer">
-                        <img src="https://i.imgur.com/XLeDUha.jpeg" alt="Área de lazer" class="w-full h-48 object-cover rounded-lg">
-                    </a>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="floorplan">
-                <div class="floor-plan-container">
-                    <img src="https://assets.apto.vc/cache/images/552016834df4f259a86082f286fc1cc12319f6a5fdabcf88cbec0c52edeb5e5fw.jpg" alt="Planta do apartamento" class="floor-plan-image">
+    
                     
                     <!-- Room Markers -->
                     <div class="room-marker" style="top: 30%; left: 20%;" data-room="sala">
@@ -706,23 +710,25 @@
             
             <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <div>
-                    <form class="space-y-6">
+                    <form action="https://formspree.io/f/xqkreqrp" method="POST" class="space-y-6">
                         <div>
                             <label for="name" class="block text-gray-700 font-medium mb-2">Seu nome</label>
-                            <input type="text" id="name" class="contact-form-input w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <input type="text" id="name" name="nome" required class="contact-form-input w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
                         </div>
                         <div>
                             <label for="email" class="block text-gray-700 font-medium mb-2">Seu e-mail</label>
-                            <input type="email" id="email" class="contact-form-input w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <input type="email" id="email" name="email" required class="contact-form-input w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
                         </div>
                         <div>
                             <label for="phone" class="block text-gray-700 font-medium mb-2">Seu telefone</label>
-                            <input type="tel" id="phone" class="contact-form-input w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <input type="tel" id="phone" name="telefone" required class="contact-form-input w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
                         </div>
                         <div>
                             <label for="message" class="block text-gray-700 font-medium mb-2">Sua mensagem</label>
-                            <textarea id="message" rows="4" class="contact-form-input w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                            <textarea id="message" name="mensagem" required rows="4" class="contact-form-input w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
                         </div>
+                        <input type="hidden" name="_subject" value="Agendamento de Visita">
+                        <input type="hidden" name="_replyto" value="fabiana@imoveisbv.com.br">
                         <button type="submit" class="btn-primary w-full bg-primary text-white font-medium px-6 py-4 rounded-full hover:bg-secondary transition">
                             SOLICITAR CONTATO
                         </button>
@@ -819,7 +825,7 @@
                 <!-- Property 3 -->
                 <div class="property-card bg-white fade-in">
                     <a href="#" data-lightbox="property" data-title="Apartamento 210m² - Tatuapé">
-                        <img src="https://images.unsplash.com/photo-1600566752227-8f3767c4d6c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Apartamento Tatuapé" class="w-full h-64 object-cover">
+                        <img src="https://i.imgur.com/2Nnfima.jpeg&auto=format&fit=crop&w=1470&q=80" alt="Apartamento Tatuapé" class="w-full h-64 object-cover">
                     </a>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2 text-primary">Apartamento 210m²</h3>
